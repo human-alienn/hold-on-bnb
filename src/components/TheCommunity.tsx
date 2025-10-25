@@ -269,7 +269,7 @@ export function TheCommunity() {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-6 justify-center">
             <motion.a
-              href="https://t.me/holdcommunity"
+              href="https://t.me/holdbnbcz"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative px-10 py-5 rounded-full overflow-hidden"
@@ -284,7 +284,7 @@ export function TheCommunity() {
             >
               <span className="relative z-10 flex items-center gap-2 text-white">
                 <MessageCircle className="w-5 h-5" />
-                Join the Telegram
+                Join Telegram
               </span>
               <motion.div
                 className="absolute inset-0 bg-white/20"
@@ -315,7 +315,7 @@ export function TheCommunity() {
             </motion.a>
             
             <motion.a
-              href="https://x.com/HOLDonBNB"
+              href="https://x.com/holdbnbcullture"
               target="_blank"
               rel="noopener noreferrer"
               className="relative px-10 py-5 rounded-full border-2 border-[#00FFC2]"
@@ -331,7 +331,7 @@ export function TheCommunity() {
             >
               <span className="flex items-center gap-2">
                 <Twitter className="w-5 h-5" />
-                Follow on X
+                Follow X
               </span>
             </motion.a>
             
