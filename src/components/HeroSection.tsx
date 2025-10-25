@@ -1,307 +1,181 @@
-import { motion } from 'motion/react';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { MatrixBackground } from './MatrixBackground';
+import { HoldLogo } from './HoldLogo';
+import { TeacherSilhouette } from './TeacherSilhouette';
+import { GlitchText } from './GlitchText';
 
-export function TheChoice() {
-  const [selectedPill, setSelectedPill] = useState<'blue' | 'red' | null>(null);
-  const [showMessage, setShowMessage] = useState(false);
+export function HeroSection() {
 
-  const handlePillClick = (pill: 'blue' | 'red') => {
-    setSelectedPill(pill);
-    setShowMessage(true);
-    
-    // Reset after animation
-    setTimeout(() => {
-      setShowMessage(false);
-      setSelectedPill(null);
-    }, 3000);
+  const handleEnterBurrow = () => {
+    // Smooth scroll to the next section
+    const nextSection = document.querySelector('#what-is-hold');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section className="relative min-h-screen py-16 md:py-32 px-4 overflow-hidden bg-black">
-      {/* Matrix background */}
-      <div className="absolute inset-0 opacity-10">
-        <div 
-          className="absolute inset-0"
+    <motion.div
+      className="relative w-full h-screen overflow-hidden"
+    >
+      {/* Vignette effect */}
+      <div className="absolute inset-0 pointer-events-none z-50">
+        <div
+          className="w-full h-full"
           style={{
-            backgroundImage: `
-              repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(243, 186, 47, 0.05) 40px, rgba(243, 186, 47, 0.05) 41px),
-              repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(243, 186, 47, 0.05) 40px, rgba(243, 186, 47, 0.05) 41px)
-            `,
+            background:
+              'radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.8) 100%)',
           }}
         />
       </div>
 
-      {/* Radial glow */}
-      <div 
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(243, 186, 47, 0.2) 0%, transparent 70%)',
-          filter: 'blur(120px)',
-        }}
-      />
+      {/* Matrix Background */}
+      <MatrixBackground />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Title */}
+      {/* Teacher Siziy Silhouette */}
+      <TeacherSilhouette />
+
+      {/* Top-right navigation */}
+      <motion.div
+        className="absolute top-4 right-4 md:top-8 md:right-8 z-40"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.5 }}
+      >
+        <button
+          onClick={handleEnterBurrow}
+          className="px-3 py-1.5 md:px-4 md:py-2 border border-[#F3BA2F]/30 rounded-full text-[#F3BA2F] hover:bg-[#F3BA2F]/10 hover:border-[#F3BA2F] transition-all duration-300 text-sm md:text-base cursor-pointer"
+        >
+          Enter HOLD
+        </button>
+      </motion.div>
+
+      {/* Main content */}
+      <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 md:px-6">
+        {/* HOLD Logo */}
+        <HoldLogo />
+
+        {/* Main headline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
+          className="mb-3 md:mb-4"
         >
-          <h2 
-            className="text-white mb-4 md:mb-6 text-3xl md:text-4xl lg:text-5xl"
+          <h1
+            className="text-center text-white tracking-tight text-2xl md:text-4xl lg:text-5xl px-2"
             style={{
-              fontFamily: 'Orbitron, sans-serif',
-              letterSpacing: '0.15em',
-              textShadow: '0 0 40px rgba(243, 186, 47, 0.6)',
+              fontWeight: 900,
+              fontFamily: 'system-ui, -apple-system, sans-serif',
+              textShadow: '0 0 20px rgba(243, 186, 47, 0.3)',
             }}
           >
-            THE CHOICE
-          </h2>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-white/80 max-w-3xl mx-auto text-center"
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(1rem, 2.4vw, 1.2rem)',
-              lineHeight: '1.8',
-            }}
-          >
-            After this, there is no turning back.
-          </motion.p>
+            <GlitchText>🟡 HOLD — The Strongest Narrative on BNB</GlitchText>
+          </h1>
         </motion.div>
 
-        {/* CZ Image with Pills */}
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.2, duration: 0.8 }}
+          className="text-[#F3BA2F]/80 mb-6 md:mb-8 text-center text-base md:text-lg lg:text-xl"
+        >
+          Ready to become a holder?
+        </motion.p>
+
+        {/* Narrative quote */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="flex justify-center mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.6, duration: 0.8 }}
+          className="max-w-2xl mx-auto mb-8 md:mb-12 px-4 md:px-6"
         >
-          <div className="relative max-w-md md:max-w-2xl">
-            <img 
-              src="/cz_choice.png" 
-              alt="CZ offering the choice"
-              className="w-full h-auto rounded-lg"
-              style={{
-                boxShadow: '0 0 60px rgba(243, 186, 47, 0.4), 0 0 100px rgba(243, 186, 47, 0.2)',
-                border: '2px solid rgba(243, 186, 47, 0.3)',
-              }}
-            />
-            
-            {/* Glow effect around image */}
-            <div
-              className="absolute inset-0 rounded-lg pointer-events-none"
-              style={{
-                background: 'linear-gradient(135deg, rgba(243, 186, 47, 0.1), transparent)',
-              }}
-            />
-          </div>
+          <blockquote className="text-center text-white/70 italic border-l-2 md:border-l-4 border-[#F3BA2F] pl-3 md:pl-6 space-y-1 md:space-y-2 text-sm md:text-base">
+            <p>"Welcome to HOLD."</p>
+            <p>This is not just another token launch — it's the awakening of a mindset.</p>
+            <p>HOLD is the belief that time is the real alpha.</p>
+            <p>If you can't hold, you won't be rich.</p>
+            <p>Ready to wake up, holder?"</p>
+          </blockquote>
         </motion.div>
 
-        {/* Pills Buttons */}
-        <div className="grid grid-cols-2 gap-4 md:gap-12 max-w-5xl mx-auto mb-16">
-          {/* Red Pill - ACCEPT HOLD (moved to left) */}
+        {/* CTA Button */}
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 3, duration: 0.5 }}
+          onClick={handleEnterBurrow}
+          className="group relative px-8 md:px-12 py-3 md:py-4 rounded-full bg-black border-2 border-[#F3BA2F] overflow-hidden transition-all duration-300"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          {/* Glow effect */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="h-full"
-          >
-            <motion.button
-              onClick={() => handlePillClick('red')}
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full h-full p-3 md:p-8 rounded-lg relative overflow-hidden group"
-              style={{
-                background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(185, 28, 28, 0.1))',
-                border: '2px solid rgba(220, 38, 38, 0.6)',
-                boxShadow: '0 8px 32px rgba(220, 38, 38, 0.4), 0 0 60px rgba(243, 186, 47, 0.2)',
-                backdropFilter: 'blur(10px)',
-              }}
-            >
-              {/* Glass effect */}
-              <div
-                className="absolute inset-0 opacity-30"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent)',
-                }}
-              />
-
-              {/* Glow on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: 'radial-gradient(circle at center, rgba(243, 186, 47, 0.3), transparent)',
-                }}
-              />
-
-              <div className="relative z-10">
-                {/* Pill Icon */}
-                <div className="flex justify-center mb-2 md:mb-6">
-                  <div
-                    className="w-10 h-5 md:w-16 md:h-8 rounded-full"
-                    style={{
-                      background: 'linear-gradient(135deg, #DC2626, #EF4444)',
-                      boxShadow: '0 4px 20px rgba(220, 38, 38, 0.6), 0 0 30px rgba(243, 186, 47, 0.3)',
-                    }}
-                  />
-                </div>
-
-                <h3
-                  className="text-white mb-2 md:mb-6 text-sm md:text-2xl lg:text-3xl"
-                  style={{
-                    fontFamily: 'Orbitron, sans-serif',
-                    letterSpacing: '0.1em',
-                  }}
-                >
-                  🔴 ACCEPT HOLD
-                </h3>
-
-                <div className="space-y-1 md:space-y-3 text-left">
-                  <div className="flex items-center gap-1 md:gap-3">
-                    <span className="text-[#F3BA2F] text-sm md:text-xl">—</span>
-                    <span className="text-white/90 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Faith.
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 md:gap-3">
-                    <span className="text-[#F3BA2F] text-sm md:text-xl">—</span>
-                    <span className="text-white/90 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Time.
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 md:gap-3">
-                    <span className="text-[#F3BA2F] text-sm md:text-xl">—</span>
-                    <span className="text-white/90 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Freedom.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.button>
-          </motion.div>
-
-          {/* Blue Pill - RETURN TO NORMAL LIFE (moved to right) */}
+            className="absolute inset-0 bg-[#F3BA2F]"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 0.1 }}
+            transition={{ duration: 0.3 }}
+          />
+          
+          {/* Animated border glow */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="h-full"
+            className="absolute inset-0 rounded-full"
+            style={{
+              boxShadow: '0 0 20px rgba(243, 186, 47, 0.5)',
+            }}
+            animate={{
+              boxShadow: [
+                '0 0 20px rgba(243, 186, 47, 0.5)',
+                '0 0 40px rgba(243, 186, 47, 0.8)',
+                '0 0 20px rgba(243, 186, 47, 0.5)',
+              ],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+
+          <span
+            className="relative z-10 text-[#F3BA2F] group-hover:text-white transition-colors duration-300 text-base md:text-lg lg:text-xl"
+            style={{ fontWeight: 700 }}
           >
-            <motion.button
-              onClick={() => handlePillClick('blue')}
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full h-full p-3 md:p-8 rounded-lg relative overflow-hidden group"
-              style={{
-                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 197, 253, 0.2))',
-                border: '2px solid rgba(59, 130, 246, 0.5)',
-                boxShadow: '0 8px 32px rgba(59, 130, 246, 0.3)',
-              }}
-            >
-              {/* Gradient overlay on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(243, 186, 47, 0.1), rgba(59, 130, 246, 0.2))',
-                }}
-              />
+            Hold Your Ground
+          </span>
+        </motion.button>
 
-              <div className="relative z-10">
-                {/* Pill Icon */}
-                <div className="flex justify-center mb-2 md:mb-6">
-                  <div
-                    className="w-10 h-5 md:w-16 md:h-8 rounded-full"
-                    style={{
-                      background: 'linear-gradient(135deg, #3B82F6, #60A5FA)',
-                      boxShadow: '0 4px 20px rgba(59, 130, 246, 0.5)',
-                    }}
-                  />
-                </div>
-
-                <h3
-                  className="text-white mb-2 md:mb-6 text-sm md:text-2xl lg:text-3xl"
-                  style={{
-                    fontFamily: 'Orbitron, sans-serif',
-                    letterSpacing: '0.1em',
-                  }}
-                >
-                  🔵 RETURN TO NORMAL LIFE
-                </h3>
-
-                <div className="space-y-1 md:space-y-3 text-left">
-                  <div className="flex items-center gap-1 md:gap-3">
-                    <span className="text-blue-400 text-sm md:text-xl">—</span>
-                    <span className="text-white/70 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Mortgage.
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 md:gap-3">
-                    <span className="text-blue-400 text-sm md:text-xl">—</span>
-                    <span className="text-white/70 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Hype tokens.
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1 md:gap-3">
-                    <span className="text-blue-400 text-sm md:text-xl">—</span>
-                    <span className="text-white/70 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Fear.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.button>
-          </motion.div>
-        </div>
-
-        {/* Message after selection */}
-        {showMessage && (
+        {/* Scroll hint */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.5, duration: 1 }}
+          className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 text-[#F3BA2F]/50 text-sm md:text-base"
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="text-center"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <div
-              className="inline-block px-10 py-6 rounded-lg"
-              style={{
-                background: selectedPill === 'red' 
-                  ? 'linear-gradient(135deg, rgba(243, 186, 47, 0.3), rgba(220, 38, 38, 0.2))'
-                  : 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 197, 253, 0.2))',
-                border: selectedPill === 'red'
-                  ? '2px solid rgba(243, 186, 47, 0.6)'
-                  : '2px solid rgba(59, 130, 246, 0.6)',
-                boxShadow: selectedPill === 'red'
-                  ? '0 0 40px rgba(243, 186, 47, 0.4)'
-                  : '0 0 40px rgba(59, 130, 246, 0.4)',
-              }}
-            >
-              <p
-                className="text-white"
-                style={{
-                  fontFamily: 'Orbitron, sans-serif',
-                  fontSize: '1.5rem',
-                  letterSpacing: '0.1em',
-                }}
-              >
-                {selectedPill === 'red' 
-                  ? '✨ WELCOME TO THE AWAKENING ✨'
-                  : '💤 PERHAPS ANOTHER TIME... 💤'
-                }
-              </p>
-            </div>
+            Scroll or Enter →
           </motion.div>
-        )}
+        </motion.div>
       </div>
-    </section>
+
+      {/* Code flicker overlay effect */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-20"
+        animate={{
+          opacity: [0, 0.03, 0, 0.05, 0],
+        }}
+        transition={{
+          duration: 0.15,
+          repeat: Infinity,
+          repeatDelay: Math.random() * 5 + 3,
+        }}
+      >
+        <div className="w-full h-full bg-[#F3BA2F] mix-blend-overlay" />
+      </motion.div>
+    </motion.div>
   );
 }
