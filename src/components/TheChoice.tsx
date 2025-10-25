@@ -65,14 +65,14 @@ export function TheChoice() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-white/80 max-w-3xl mx-auto"
+            className="text-white/80 max-w-3xl mx-auto text-center"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontSize: 'clamp(1rem, 2.4vw, 1.2rem)',
               lineHeight: '1.8',
             }}
           >
-            This is your last chance. After this, there is no turning back.
+            After this, there is no turning back.
           </motion.p>
         </motion.div>
 
@@ -84,9 +84,9 @@ export function TheChoice() {
           transition={{ duration: 1 }}
           className="flex justify-center mb-20"
         >
-          <div className="relative max-w-2xl">
+          <div className="relative max-w-md md:max-w-2xl">
             <img 
-              src="/cz_orbital.png" 
+              src="/cz_choice.png" 
               alt="CZ offering the choice"
               className="w-full h-auto rounded-lg"
               style={{
@@ -106,7 +106,7 @@ export function TheChoice() {
         </motion.div>
 
         {/* Pills Buttons */}
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-2 gap-4 md:gap-12 max-w-5xl mx-auto mb-16">
           {/* Red Pill - ACCEPT HOLD (moved to left) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -119,7 +119,7 @@ export function TheChoice() {
               onClick={() => handlePillClick('red')}
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full h-full p-8 rounded-lg relative overflow-hidden group"
+              className="w-full h-full p-3 md:p-8 rounded-lg relative overflow-hidden group"
               style={{
                 background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(185, 28, 28, 0.1))',
                 border: '2px solid rgba(220, 38, 38, 0.6)',
@@ -145,9 +145,9 @@ export function TheChoice() {
 
               <div className="relative z-10">
                 {/* Pill Icon */}
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-2 md:mb-6">
                   <div
-                    className="w-16 h-8 rounded-full"
+                    className="w-10 h-5 md:w-16 md:h-8 rounded-full"
                     style={{
                       background: 'linear-gradient(135deg, #DC2626, #EF4444)',
                       boxShadow: '0 4px 20px rgba(220, 38, 38, 0.6), 0 0 30px rgba(243, 186, 47, 0.3)',
@@ -156,32 +156,31 @@ export function TheChoice() {
                 </div>
 
                 <h3
-                  className="text-white mb-6"
+                  className="text-white mb-2 md:mb-6 text-sm md:text-2xl lg:text-3xl"
                   style={{
                     fontFamily: 'Orbitron, sans-serif',
-                    fontSize: '1.8rem',
                     letterSpacing: '0.1em',
                   }}
                 >
                   🔴 ACCEPT HOLD
                 </h3>
 
-                <div className="space-y-3 text-left">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[#F3BA2F] text-xl">—</span>
-                    <span className="text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <div className="space-y-1 md:space-y-3 text-left">
+                  <div className="flex items-center gap-1 md:gap-3">
+                    <span className="text-[#F3BA2F] text-sm md:text-xl">—</span>
+                    <span className="text-white/90 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
                       Faith.
                     </span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-[#F3BA2F] text-xl">—</span>
-                    <span className="text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  <div className="flex items-center gap-1 md:gap-3">
+                    <span className="text-[#F3BA2F] text-sm md:text-xl">—</span>
+                    <span className="text-white/90 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
                       Time.
                     </span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-[#F3BA2F] text-xl">—</span>
-                    <span className="text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  <div className="flex items-center gap-1 md:gap-3">
+                    <span className="text-[#F3BA2F] text-sm md:text-xl">—</span>
+                    <span className="text-white/90 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
                       Freedom.
                     </span>
                   </div>
@@ -202,7 +201,7 @@ export function TheChoice() {
               onClick={() => handlePillClick('blue')}
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full h-full p-8 rounded-lg relative overflow-hidden group"
+              className="w-full h-full p-3 md:p-8 rounded-lg relative overflow-hidden group"
               style={{
                 background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 197, 253, 0.2))',
                 border: '2px solid rgba(59, 130, 246, 0.5)',
@@ -219,9 +218,9 @@ export function TheChoice() {
 
               <div className="relative z-10">
                 {/* Pill Icon */}
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-2 md:mb-6">
                   <div
-                    className="w-16 h-8 rounded-full"
+                    className="w-10 h-5 md:w-16 md:h-8 rounded-full"
                     style={{
                       background: 'linear-gradient(135deg, #3B82F6, #60A5FA)',
                       boxShadow: '0 4px 20px rgba(59, 130, 246, 0.5)',
@@ -230,32 +229,31 @@ export function TheChoice() {
                 </div>
 
                 <h3
-                  className="text-white mb-6"
+                  className="text-white mb-2 md:mb-6 text-sm md:text-2xl lg:text-3xl"
                   style={{
                     fontFamily: 'Orbitron, sans-serif',
-                    fontSize: '1.8rem',
                     letterSpacing: '0.1em',
                   }}
                 >
                   🔵 RETURN TO NORMAL LIFE
                 </h3>
 
-                <div className="space-y-3 text-left">
-                  <div className="flex items-center gap-3">
-                    <span className="text-blue-400 text-xl">—</span>
-                    <span className="text-white/70" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <div className="space-y-1 md:space-y-3 text-left">
+                  <div className="flex items-center gap-1 md:gap-3">
+                    <span className="text-blue-400 text-sm md:text-xl">—</span>
+                    <span className="text-white/70 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
                       Mortgage.
                     </span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-blue-400 text-xl">—</span>
-                    <span className="text-white/70" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  <div className="flex items-center gap-1 md:gap-3">
+                    <span className="text-blue-400 text-sm md:text-xl">—</span>
+                    <span className="text-white/70 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
                       Hype tokens.
                     </span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-blue-400 text-xl">—</span>
-                    <span className="text-white/70" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  <div className="flex items-center gap-1 md:gap-3">
+                    <span className="text-blue-400 text-sm md:text-xl">—</span>
+                    <span className="text-white/70 text-xs md:text-base" style={{ fontFamily: 'Inter, sans-serif' }}>
                       Fear.
                     </span>
                   </div>
