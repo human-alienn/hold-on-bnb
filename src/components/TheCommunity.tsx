@@ -146,7 +146,7 @@ export function TheCommunity() {
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="inline-flex items-center gap-3 mb-6"
+            className="flex flex-col md:inline-flex md:flex-row items-center justify-center gap-3 mb-6"
             animate={{
               scale: [1, 1.02, 1],
             }}
@@ -158,7 +158,7 @@ export function TheCommunity() {
           >
             <Heart className="w-8 h-8 text-[#F3BA2F]" fill="#F3BA2F" />
             <h2 
-              className="text-5xl md:text-6xl"
+              className="text-3xl md:text-5xl lg:text-6xl"
               style={{ 
                 fontFamily: 'Poppins, sans-serif',
                 fontWeight: 800,
@@ -336,7 +336,7 @@ export function TheCommunity() {
             </motion.a>
             
             <motion.a
-              href="https://holdcz.fun"
+              href="https://dexscreener.com/bsc/0x4b49be5d937e43dac52f44e15484fa8ae77bfa2a"
               target="_blank"
               rel="noopener noreferrer"
               className="relative px-10 py-5 rounded-full border-2 border-[#F3BA2F]"
