@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { MatrixBackground } from './MatrixBackground';
 import { TeacherSilhouette } from './TeacherSilhouette';
-import holdLogo from 'figma:asset/93817d671941a19bb7729a45d44e1e02c5033f31.png';
 
 export function HeroSection() {
 
@@ -41,11 +40,11 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="mb-4 md:mb-6 w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[340px] px-4"
+          className="mb-4 md:mb-6 w-full max-w-[140px] sm:max-w-[170px] md:max-w-[220px] lg:max-w-[270px] px-4"
           style={{ marginTop: '86px' }}
         >
-          <img 
-            src={holdLogo} 
+            <img 
+            src="/hold-logo.png" 
             alt="HOLD" 
             className="w-full h-auto"
             style={{
