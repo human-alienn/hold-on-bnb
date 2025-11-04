@@ -164,21 +164,20 @@ export function TheRules() {
                   transformStyle: 'preserve-3d',
                 }}
               >
-                <img
-                  src="/hold-logo.png"
-                  alt="HOLD"
-                  className="w-24 h-24 md:w-32 md:h-32"
-                  style={{
-                    filter: 'drop-shadow(0 0 20px rgba(243, 186, 47, 0.8))',
-                  }}
-                />
                 <motion.div
-                  className="absolute inset-0 rounded-full"
+                  className="text-[#F3BA2F]"
+                  style={{
+                    fontSize: 'clamp(4rem, 10vw, 6rem)',
+                    fontWeight: 900,
+                    fontFamily: 'Space Mono, monospace',
+                    letterSpacing: '0.1em',
+                    textShadow: '0 0 30px rgba(243, 186, 47, 0.9), 0 0 60px rgba(243, 186, 47, 0.6)',
+                  }}
                   animate={{
-                    boxShadow: [
-                      '0 0 30px rgba(243, 186, 47, 0.5)',
-                      '0 0 60px rgba(243, 186, 47, 0.8)',
-                      '0 0 30px rgba(243, 186, 47, 0.5)',
+                    textShadow: [
+                      '0 0 30px rgba(243, 186, 47, 0.9), 0 0 60px rgba(243, 186, 47, 0.6)',
+                      '0 0 50px rgba(243, 186, 47, 1), 0 0 90px rgba(243, 186, 47, 0.8)',
+                      '0 0 30px rgba(243, 186, 47, 0.9), 0 0 60px rgba(243, 186, 47, 0.6)',
                     ],
                   }}
                   transition={{
@@ -186,7 +185,9 @@ export function TheRules() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
-                />
+                >
+                  HOLD
+                </motion.div>
               </motion.div>
             </div>
 
