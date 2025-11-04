@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { MatrixBackground } from './MatrixBackground';
 import { TeacherSilhouette } from './TeacherSilhouette';
-import { GlitchText } from './GlitchText';
+import holdLogo from 'figma:asset/93817d671941a19bb7729a45d44e1e02c5033f31.png';
 
 export function HeroSection() {
 
@@ -42,10 +42,10 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className="mb-4 md:mb-6 w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[340px] px-4"
-          style={{ marginTop: '15px' }}
+          style={{ marginTop: '86px' }}
         >
-        <img 
-            src="/hold-logo.png" 
+          <img 
+            src={holdLogo} 
             alt="HOLD" 
             className="w-full h-auto"
             style={{
@@ -65,7 +65,7 @@ export function HeroSection() {
             className="text-[#F3BA2F] tracking-wide"
             style={{ 
               fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(0.95rem, 3.5vw, 1.2rem)',
+              fontSize: 'clamp(1.25rem, 5vw, 1.75rem)',
               fontWeight: 700,
               textShadow: '0 0 30px rgba(243, 186, 47, 0.5)',
               letterSpacing: '0.05em'
@@ -86,7 +86,7 @@ export function HeroSection() {
             className="text-white italic tracking-wide"
             style={{ 
               fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(1rem, 2.8vw, 1.15rem)',
+              fontSize: 'clamp(1.4rem, 4vw, 1.6rem)',
               fontWeight: 600,
               letterSpacing: '0.03em'
             }}
@@ -106,7 +106,7 @@ export function HeroSection() {
             className="text-white tracking-wide"
             style={{ 
               fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
+              fontSize: 'clamp(1.15rem, 3.5vw, 1.3rem)',
               fontWeight: 500,
               letterSpacing: '0.02em',
               lineHeight: '1.4'
@@ -126,7 +126,7 @@ export function HeroSection() {
             className="text-white tracking-wide max-w-3xl px-2"
             style={{ 
               fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
+              fontSize: 'clamp(1.15rem, 3.5vw, 1.3rem)',
               fontWeight: 500,
               letterSpacing: '0.02em',
               lineHeight: '1.4'
@@ -229,8 +229,6 @@ export function HeroSection() {
           </motion.button>
         </motion.div>
       </div>
-
- 
 
       {/* Code flicker overlay effect */}
       <motion.div
