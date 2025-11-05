@@ -1,7 +1,9 @@
+
 import { motion } from 'motion/react';
 import { AnimatedMatrixGrid } from './AnimatedMatrixGrid';
 import { RuleCard } from './RuleCard';
 import { TerminalPrompt } from './TerminalPrompt';
+import { HoldLogo } from './HoldLogo';
 import { useState, useRef } from 'react';
 
 const rules = [
@@ -136,7 +138,7 @@ export function TheRules() {
           </motion.h2>
         </motion.div>
 
-        {/* Center holographic panel with rotating HOLD logo */}
+{/* Center holographic panel with rotating HOLD logo */}
         <div className="relative mb-16">
           <motion.div
             className="w-full max-w-4xl mx-auto p-8 md:p-12 rounded-2xl backdrop-blur-xl border border-[#F3BA2F]/20"
@@ -164,30 +166,7 @@ export function TheRules() {
                   transformStyle: 'preserve-3d',
                 }}
               >
-                <motion.div
-                  className="text-[#F3BA2F]"
-                  style={{
-                    fontSize: 'clamp(4rem, 10vw, 6rem)',
-                    fontWeight: 900,
-                    fontFamily: 'Space Mono, monospace',
-                    letterSpacing: '0.1em',
-                    textShadow: '0 0 30px rgba(243, 186, 47, 0.9), 0 0 60px rgba(243, 186, 47, 0.6)',
-                  }}
-                  animate={{
-                    textShadow: [
-                      '0 0 30px rgba(243, 186, 47, 0.9), 0 0 60px rgba(243, 186, 47, 0.6)',
-                      '0 0 50px rgba(243, 186, 47, 1), 0 0 90px rgba(243, 186, 47, 0.8)',
-                      '0 0 30px rgba(243, 186, 47, 0.9), 0 0 60px rgba(243, 186, 47, 0.6)',
-                    ],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                >
-                  HOLD
-                </motion.div>
+                <HoldLogo />
               </motion.div>
             </div>
 
