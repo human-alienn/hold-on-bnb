@@ -121,27 +121,8 @@ export function EntryScreen({ onAccept }: EntryScreenProps) {
         >
           <p 
             className="text-white tracking-wide max-w-3xl px-2"
-                        style={{ 
-              fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(1.15rem, 3.5vw, 1.3rem)',
-              fontWeight: 500,
-              letterSpacing: '0.02em',
-              lineHeight: '1.4'
-            }}
-          >
-            This is not just another token launch it's the awakening of a mindset.
-          </p>
-        </motion.div>
 
-        {/* HOLD is the belief that time is the real alpha - White, same size */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <p 
-            className="text-white tracking-wide max-w-3xl px-2"
-            style={{ 
+          style={{ 
               fontFamily: 'Cinzel, serif',
               fontSize: 'clamp(1.15rem, 3.5vw, 1.3rem)',
               fontWeight: 500,
