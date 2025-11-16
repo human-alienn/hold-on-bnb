@@ -28,21 +28,27 @@ export function EntryScreen({ onAccept }: EntryScreenProps) {
       
       {/* Main content - centered */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 md:px-6 text-center -mt-16 md:-mt-40">
-        {/* HOLD Logo with glow */}
+        {/* HOLD Logo Text with glow */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="mb-4 md:mb-6 w-full max-w-[280px] sm:max-w-[350px] md:max-w-[450px] lg:max-w-[550px] px-4"
+          className="mb-4 md:mb-6"
+          style={{ marginTop: '86px' }}
         >
-    <img 
-            src="/hold-logo.png" 
-            alt="HOLD" 
-            className="w-full h-auto"
+          <h1 
+            className="text-[#F3BA2F] tracking-widest select-none"
             style={{
-              filter: 'drop-shadow(0 0 30px rgba(243, 186, 47, 0.6))',
+              fontFamily: 'Cinzel, serif',
+              fontSize: 'clamp(3.5rem, 15vw, 7rem)',
+              fontWeight: 900,
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              textShadow: '0 0 40px rgba(243, 186, 47, 0.6), 0 0 80px rgba(243, 186, 47, 0.4)',
             }}
-          />
+          >
+            HOLD
+          </h1>
         </motion.div>
 
         {/* The Strongest Narrative on BNB - Gold and biggest */}
@@ -96,6 +102,26 @@ export function EntryScreen({ onAccept }: EntryScreenProps) {
           <p 
             className="text-white tracking-wide"
             style={{ 
+              fontFamily: 'Cinzel, serif',
+              fontSize: 'clamp(1.15rem, 3.5vw, 1.3rem)',
+              fontWeight: 500,
+              letterSpacing: '0.02em',
+              lineHeight: '1.4'
+            }}
+          >
+            This is not just another token launch it's the awakening of a mindset.
+          </p>
+        </motion.div>
+
+        {/* HOLD is the belief that time is the real alpha - White, same size */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          <p 
+            className="text-white tracking-wide max-w-3xl px-2"
+                        style={{ 
               fontFamily: 'Cinzel, serif',
               fontSize: 'clamp(1.15rem, 3.5vw, 1.3rem)',
               fontWeight: 500,
