@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { MatrixBackground } from './MatrixBackground';
 import { TeacherSilhouette } from './TeacherSilhouette';
 
@@ -28,27 +28,22 @@ export function EntryScreen({ onAccept }: EntryScreenProps) {
       
       {/* Main content - centered */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full px-4 md:px-6 text-center -mt-16 md:-mt-40">
-        {/* HOLD Logo Text with glow */}
+        {/* HOLD Logo with glow */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="mb-4 md:mb-6"
+          className="mb-4 md:mb-6 w-full max-w-[140px] sm:max-w-[170px] md:max-w-[220px] lg:max-w-[270px] px-4"
           style={{ marginTop: '86px' }}
         >
-          <h1 
-            className="text-[#F3BA2F] tracking-widest select-none"
+          <img 
+            src="/hold-logo.png" 
+            alt="HOLD" 
+            className="w-full h-auto"
             style={{
-              fontFamily: 'Cinzel, serif',
-              fontSize: 'clamp(3.5rem, 15vw, 7rem)',
-              fontWeight: 900,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              textShadow: '0 0 40px rgba(243, 186, 47, 0.6), 0 0 80px rgba(243, 186, 47, 0.4)',
+              filter: 'drop-shadow(0 0 30px rgba(243, 186, 47, 0.6))',
             }}
-          >
-            HOLD
-          </h1>
+          />
         </motion.div>
 
         {/* The Strongest Narrative on BNB - Gold and biggest */}
@@ -121,8 +116,7 @@ export function EntryScreen({ onAccept }: EntryScreenProps) {
         >
           <p 
             className="text-white tracking-wide max-w-3xl px-2"
-
-          style={{ 
+            style={{ 
               fontFamily: 'Cinzel, serif',
               fontSize: 'clamp(1.15rem, 3.5vw, 1.3rem)',
               fontWeight: 500,
