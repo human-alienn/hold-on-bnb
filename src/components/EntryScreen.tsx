@@ -94,7 +94,7 @@ export function EntryScreen({ onAccept }: EntryScreenProps) {
           transition={{ duration: 0.8, delay: 1 }}
           className="mb-1 md:mb-2 max-w-3xl px-2"
         >
-          <p 
+                    <p 
             className="text-white tracking-wide"
             style={{ 
               fontFamily: 'Cinzel, serif',
@@ -130,7 +130,7 @@ export function EntryScreen({ onAccept }: EntryScreenProps) {
       </div>
 
       {/* Bottom section - Patience text and Accept HOLD button */}
-      <div className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-4 md:gap-5 w-full px-4">
+      <div className="absolute bottom-[70px] md:bottom-16 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-4 md:gap-5 w-full px-4">
         {/* Patience is the code. Time is the alpha. - Gold */}
         <motion.div
           initial={{ opacity: 0 }}
